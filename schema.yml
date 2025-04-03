@@ -1,0 +1,43 @@
+sources:
+  - name: RAW_DATA
+    database: CREDIT_RISK_DB      # Replace with your actual database name
+    schema: RAW_DATA              # Schema where the table is stored
+    tables:
+      - name: CREDIT_CARD_DEFAULT
+
+models:
+  - name: credit_risk_analysis
+    description: "A model for analyzing credit risk"
+    columns:
+      - name: ID
+        description: "Unique identifier for each customer"
+        tests:
+          - unique
+          - not_null
+          
+        name: LIMIT_BAL
+        description: "Credit limit assigned to the customer (in local currency)."
+
+      - name: SEX
+        description: "Gender of the customer (1 = Male, 2 = Female)."
+
+      - name: EDUCATION
+        description: "Educational level of the customer (1 = Graduate School, 2 = University, 3 = High School, 4 = Others)."
+
+      - name: MARRIAGE
+        description: "Marital status of the customer (1 = Married, 2 = Single, 3 = Others)."
+
+      - name: AGE
+        description: "Age of the customer in years."
+
+      - name: PAY_0 to PAY_6
+        description: "Repayment status in the past 6 months (1 = Paid, -1 = No Dues, 0 = On-time, 2 = Late)."
+
+      - name: BILL_AMT1 to BILL_AMT6
+        description: "Bill amount for the past 6 months."
+
+      - name: PAY_AMT1 to PAY_AMT6
+        description: "Payment amount made for the past 6 months."
+
+      - name: DEFAULT_PAYMENT_NEXT_MONTH
+        description: "Indicates whether the customer defaulted in the next month (1 = Yes, 0 = No)."
